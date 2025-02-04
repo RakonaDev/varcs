@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.flyingItem {
+  animation: flying alternate infinite 2s;
+}
+
+@keyframes flying {
+  from {
+    transform: translateY(5px);
+  }
+  to{
+    transform: translateY(-5px);
+  }
+}
