@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Logo from '../../assets/logo-vartecs.webp'
 import { FaFacebookF, FaWhatsapp, FaYoutube } from "react-icons/fa6";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [isTop, setIsTop] = useState(false)
@@ -53,13 +54,13 @@ export default function Header() {
               className="hover:scale-110 duration-500 transition-all"
             />
             <nav className={'flex gap-3 z-50 text-base text-white font-bold '}>
-              <a href="#">INICIO</a>
+              <Link to='/'>INICIO</Link>
               <span className="mx-2">|</span>
-              <a href="#">NOSOTROS</a>
+              <Link to='/nosotros'>NOSOTROS</Link>
               <span className="mx-2">|</span>
-              <a href="#">PROYECTOS REALIZADOS</a>
+              <Link to='/proyectos'>PROYECTOS REALIZADOS</Link>
               <span className="mx-2">|</span>
-              <a href="">CONTACTANOS</a>
+              <Link to='/contacto'>CONTÁCTANOS</Link>
             </nav>
           </div>
         </Container>

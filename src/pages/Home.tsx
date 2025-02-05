@@ -3,10 +3,17 @@ import { FaHandshake, FaHandsHoldingChild, FaMagnifyingGlass, FaPhone, FaUsers }
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion'
 import Banner from '../assets/images/construction.webp'
+import Instalacion_Membrana from '../assets/images/inicio/instalacion_geomembrana.webp'
+import GeoTextil from '../assets/images/inicio/geotextil.webp'
 import ValoresAside from '../assets/images/excavator.webp'
 import { TbUserStar } from "react-icons/tb";
+import CardService from "../components/features/CardService";
+import { useEffect } from "react";
 
 export function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className={`w-full`}>
       <header className="h-screen w-full overflow-hidden relative flex justify-center items-center">
@@ -22,7 +29,7 @@ export function Home() {
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-white font-bold text-4xl z-50 mx-5"
+          className="text-white font-bold text-6xl z-50 mx-5 text-center"
         >
           <div className="flex flex-col gap-4">
             Soluciones en Geosintéticos y Tubería HDPE para tus proyectos industriales.
@@ -113,7 +120,7 @@ export function Home() {
               </motion.h1>
               <p className="text-center">Direccion: <span className="transition-all duration-500 font-medium hover:text-rojo">Jr. Elmer Faucet Mz. Lt. 7 - Cajamarca</span></p>
               <p className="text-center">Celulares: <span className="transition-all duration-500 font-medium hover:text-rojo">923422004</span></p>
-              <Link to='' className='flex gap-3 px-8 py-2 items-center bg-rojo rounded-lg font-medium'>
+              <Link to='/contacto' className='flex gap-3 px-8 py-2 items-center bg-rojo rounded-lg font-medium'>
                 <FaPhone size={20} />
                 Contactar
               </Link>
@@ -121,7 +128,7 @@ export function Home() {
           </Container>
         </article>
         <div className="w-full flex relative overflow-hidden">
-          <section className="w-full z-10 bg-azul p-5 py-16 text-white flex flex-col gap-5">
+          <section className="w-full z-10 bg-azul_oscuro p-5 py-16 text-white flex flex-col gap-5">
             <motion.h1
               initial={{ x: 100 }}
               whileInView={{ x: 0 }}
@@ -129,28 +136,24 @@ export function Home() {
             >
               Nuestros Servicios
             </motion.h1>
-            <ul className="w-full flex gap-10 justify-evenly flex-wrap">
-              <li className="flex flex-col items-center justify-center text-center gap-5 min-w-[200px] max-w-[250px]">
-                <FaHandsHoldingChild size={70} className="flyingItem h-24" />
-                <p className="font-medium">Instalacion de Geomembrana.</p>
-              </li>
-              <li className="flex flex-col items-center justify-center text-center gap-5 min-w-[200px] max-w-[250px]">
-                <FaMagnifyingGlass size={60} className="flyingItem h-24" />
-                <p className="font-medium">HDPE, LLDPE, PVC.</p>
-              </li>
-              <li className="flex flex-col items-center justify-center text-center gap-5 min-w-[200px] max-w-[250px]">
-                <FaHandshake size={70} className="flyingItem h-24" />
-                <p className="font-medium">Geotextil.</p>
-              </li>
-              <li className="flex flex-col items-center justify-center text-center gap-5 min-w-[200px] max-w-[250px]">
-                <FaUsers size={60} className="flyingItem h-24" />
-                <p className="font-medium">Geocompuestos.</p>
-              </li>
+            <ul className="w-full flex flex-col gap-10 justify-evenly flex-wrap">
+              <CardService
+                url={Instalacion_Membrana}
+                title='Instalación de Geomembrana'
+                description="Ofrecemos un servicio especializado en suministro e instalación de geomembranas para proyectos de impermeabilización y contención de líquidos y residuos en diversos sectores: minería, agricultura, construcción"
+                link={true}
+              />
+              <CardService
+                url={GeoTextil}
+                title='Geotextil'
+                description="Brindamos un servicio especializado en la venta e instalación de geotextiles para aplicaciones en ingeniería civil, minería, agricultura y construcción. Nuestros geotextiles están diseñados para mejorar la estabilidad, filtración, drenaje y refuerzo del suelo, optimizando el rendimiento de tus proyectos."
+                link={true}
+              />
             </ul>
             <div className="w-full flex">
               <Link
                 to='#'
-                className="px-6 py-2 bg-white rounded-md text-black mx-auto w-fit hover:bg-black hover:text-white duration-300 transition-colors"
+                className="px-6 py-2 bg-white rounded-md text-black mx-auto w-fit hover:bg-black hover:text-white duration-300 transition-colors font-medium"
               >
                 Quiero saber mas
               </Link>
