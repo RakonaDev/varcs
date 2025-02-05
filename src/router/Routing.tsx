@@ -7,7 +7,7 @@ import Contacto from '../pages/Contacto'
 
 export default function Routing () {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/informativas/vartecs">
       <Routes>
         <Route path='/' element={ <PublicLayout /> }>
           <Route index element={<Home />} />
