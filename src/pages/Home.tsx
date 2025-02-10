@@ -2,34 +2,29 @@ import { Container } from "../components/utils/Container";
 import { FaHandshake, FaHandsHoldingChild, FaMagnifyingGlass, FaPhone, FaUsers } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { motion } from 'framer-motion'
-import Banner from '../assets/images/construction.webp'
+import Banner1 from '../assets/images/inicio/banner1.webp'
 import Instalacion_Membrana from '../assets/images/inicio/instalacion_geomembrana.webp'
 import GeoTextil from '../assets/images/inicio/geotextil.webp'
-import ValoresAside from '../assets/images/excavator.webp'
+import Soldadura from '../assets/images/inicio/soldadura.webp'
+import Instalacion from '../assets/images/inicio/instalacion_gcl.webp'
 import { TbUserStar } from "react-icons/tb";
 import CardService from "../components/features/CardService";
 import { useEffect } from "react";
+import SwiperPhotos from "../components/utils/SwiperPhotos";
 
 export function Home() {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
   return (
-    <div className={`w-full`}>
+    <div className='w-full'>
       <header className="h-screen w-full overflow-hidden relative flex justify-center items-center">
-        <div className="w-full h-screen absolute top-0 z-10 bg-black/60"></div>
-        <img
-          src={Banner}
-          width={1440}
-          height={960}
-          alt="Banner"
-          className="w-full object-cover absolute top-0"
-        />
+        <SwiperPhotos />
         <motion.h1
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-white font-bold text-6xl z-50 mx-5 text-center"
+          className="text-white font-bold text-2xl lg:text-6xl z-50 mx-20 text-center"
         >
           <div className="flex flex-col gap-4">
             Soluciones en Geosintéticos y Tubería HDPE para tus proyectos industriales.
@@ -43,12 +38,12 @@ export function Home() {
             <motion.h1
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="text-center font-bold text-2xl">¿Quienes Somos?
+              className="text-center font-bold text-3xl">¿Quienes Somos?
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="text-center"><span className="font-bold">VARTECS</span>, empresa peruana que tiene la disposicion de atender a los diversos sectores de mineria, contruccion, agricultura, industrias diversas, y organismos gubernamentales cubriendo proyectos de infraestructura y arquetectonicos.
+              className="text-center text-lg"><span className="font-bold">VARTECS</span>, Somos una empresa especializada en la comercialización e instalación de geosintéticos y tuberías HDPE, brindando soluciones innovadoras y sostenibles para la industria, minería, construcción y agroindustria. Contamos con un equipo de profesionales altamente capacitados y utilizamos materiales certificados para garantizar la máxima calidad en cada proyecto. Nuestro compromiso es ofrecer productos y servicios de alta eficiencia, asegurando durabilidad, seguridad y óptimo desempeño en cada aplicación.
             </motion.p>
             <TbUserStar size={70} />
             <motion.button
@@ -62,16 +57,16 @@ export function Home() {
           </div>
         </Container>
         <div className="w-full flex relative justify-end overflow-hidden">
-          <section className="w-[58%] absolute left-0">
+          <section className="w-[58%] absolute left-0 hidden lg:block">
             <img
-              src={ValoresAside}
+              src={Banner1}
               width={800}
               height={800}
               alt="VARTECS"
-              className="w-full blur-sm hover:blur-none transition-all duration-500"
+              className="w-full transition-all duration-500"
             />
           </section>
-          <section className="w-1/2 z-10 bg-rojo p-5 py-16 text-black flex flex-col gap-5">
+          <section className="w-full lg:w-1/2 z-10 bg-rojo p-5 py-16 text-black flex flex-col gap-5">
             <motion.h1
               initial={{ x: 100 }}
               whileInView={{ x: 0 }}
@@ -119,7 +114,7 @@ export function Home() {
                 Contactanos
               </motion.h1>
               <p className="text-center">Direccion: <span className="transition-all duration-500 font-medium hover:text-rojo">Jr. Elmer Faucet Mz. Lt. 7 - Cajamarca</span></p>
-              <p className="text-center">Celulares: <span className="transition-all duration-500 font-medium hover:text-rojo">923422004</span></p>
+              <p className="text-center">Celulares: <span className="transition-all duration-500 font-medium hover:text-rojo">923422004 - 983807040 - 934003145 - 076 264915</span></p>
               <Link to='/contacto' className='flex gap-3 px-8 py-2 items-center bg-rojo rounded-lg font-medium'>
                 <FaPhone size={20} />
                 Contactar
@@ -147,6 +142,18 @@ export function Home() {
                 url={GeoTextil}
                 title='Geotextil'
                 description="Brindamos un servicio especializado en la venta e instalación de geotextiles para aplicaciones en ingeniería civil, minería, agricultura y construcción. Nuestros geotextiles están diseñados para mejorar la estabilidad, filtración, drenaje y refuerzo del suelo, optimizando el rendimiento de tus proyectos."
+                link={true}
+              />
+              <CardService
+                url={Soldadura}
+                title='Soldadura de tubería HDPE'
+                description="En distintos diámetros y espesor (SDR), especializados en métodos seguros para unir lineas de conducción de longitudes acorde a las nececesidades del cliente."
+                link={true}
+              />
+              <CardService
+                url={Instalacion}
+                title='Instalación de GCL y Geocompuesto'
+                description="Ofrecemos un servicio especializado en la instalación de GCL (Geosynthetic Clay Liner) y geocompuestos, garantizando máxima seguridad y rendimiento en proyectos de ingeniería civil, minería, rellenos sanitarios, lagunas artificiales y más."
                 link={true}
               />
             </ul>

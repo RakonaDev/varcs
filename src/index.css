@@ -5,12 +5,59 @@
 .flyingItem {
   animation: flying alternate infinite 2s;
 }
+.swiper-button-prev,
+.swiper-button-next {
+  color: white !important;
+  z-index: 30 !important;
+}
+
+.oscuro {
+  filter: brightness(50%);
+}
+
+.carousel-container {
+  width: 100%; /* Ajusta el ancho según necesites */
+  overflow: hidden; /* Importante para ocultar los items que se salen */
+  position: relative; /* Para posicionar la pista del carrusel */
+}
+
+.carousel-track {
+  display: flex; /* Para alinear los items horizontalmente */
+  animation: scroll 20s linear infinite; /* Animación para el desplazamiento automático */
+  width: calc(
+    150px * 14
+  ); /* Ancho total de la pista (ajusta '150px' según el ancho de tus items) */
+}
+
+.carousel-item {
+  width: 150px; /* Ancho de cada item (ajusta este valor) */
+  height: 100px; /* Alto de cada item (ajusta este valor) */
+  background-color: #f0f0f0; /* Color de fondo de ejemplo */
+  border: 1px solid #ccc; /* Borde de ejemplo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px; /* Espacio entre items (ajusta este valor) */
+  box-sizing: border-box; /* Importante para que el ancho incluya el padding y border */
+  flex-shrink: 0; /* Evita que los items se encojan */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0); /* Inicio: No desplazado */
+  }
+  100% {
+    transform: translateX(
+      calc(-150px * 14)
+    ); /* Fin: Desplazado todo el ancho de la pista */
+  }
+}
 
 @keyframes flying {
   from {
     transform: translateY(5px);
   }
-  to{
+  to {
     transform: translateY(-5px);
   }
 }

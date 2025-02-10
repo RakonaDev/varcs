@@ -10,8 +10,8 @@ import { useEffect } from 'react';
 
 export default function Contacto() {
   useEffect(() => {
-      window.scrollTo(0, 0)
-    }, [])
+    window.scrollTo(0, 0)
+  }, [])
   const {
     handleBlur,
     handleChange,
@@ -38,7 +38,7 @@ export default function Contacto() {
           <Container>
             <div className='w-full h-full flex flex-col gap-10 items-center justify-center'>
               <form
-                className='flex flex-col gap-7 my-10 bg-white p-5 rounded-xl w-[600px] shadow-lg shadow-gray-600'
+                className='flex flex-col gap-7 my-10 bg-white p-5 rounded-xl w-full lg:w-[600px] shadow-lg shadow-gray-600'
                 onSubmit={handleSubmit}
               >
                 <h1 className='text-center font-bold text-3xl'>Contáctanos</h1>
@@ -54,12 +54,12 @@ export default function Contacto() {
                   helperText={errors.nombre_empresa}
                   required
                 />
-                <div className='w-full flex gap-5'>
+                <div className='w-full flex max-lg:flex-col gap-5'>
                   <TextField
                     id="outlined-basic"
                     label="Numero de la Empresa"
                     variant="outlined"
-                    className='w-1/2'
+                    className='w-full lg:w-1/2'
                     onChange={handleChange}
                     onBlur={handleBlur}
                     name='telefono'
@@ -71,7 +71,7 @@ export default function Contacto() {
                     id="outlined-basic"
                     label="Email de la Empresa"
                     variant="outlined"
-                    className='w-1/2'
+                    className='w-full lg:w-1/2'
                     onChange={handleChange}
                     onBlur={handleBlur}
                     name='email'
@@ -96,7 +96,7 @@ export default function Contacto() {
                 <Button type='submit' variant="contained" className='w-fit mx-auto px-8 py-2 text-white' sx={{ background: '#BF212E', fontWeight: '600', marginInline: 'auto' }}>Enviar Formulario</Button>
               </form>
               <section className='w-full flex gap-10 flex-wrap justify-evenly py-10'>
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
@@ -105,16 +105,21 @@ export default function Contacto() {
                   <h1 className='text-center font-bold text-3xl'>Dirección</h1>
                   <p className='text-center text-black font-medium text-lg'>Jr. Elmer Faucet Mz. F Lt. 7 - Cajamarca</p>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
                   className='rounded-lg shadow-sm shadow-black hover:scale-105 duration-300 transition-all min-w-[300px] max-w-[400px] bg-rojo flex flex-col gap-5 items-center justify-center p-4'>
                   <FaPhoneAlt size={45} />
                   <h1 className='text-center font-bold text-3xl'>Celulares</h1>
-                  <p className='text-center text-black font-medium text-lg'>923422004</p>
+                  <div>
+                    <p className='text-center text-black font-medium text-lg'>923422004</p>
+                    <p className='text-center text-black font-medium text-lg'>983807040</p>
+                    <p className='text-center text-black font-medium text-lg'>934003145</p>
+                    <p className='text-center text-black font-medium text-lg'>076 264915</p>
+                  </div>
                 </motion.div>
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5 }}
@@ -122,7 +127,7 @@ export default function Contacto() {
                   <MdOutlineMail size={45} />
                   <h1 className='text-center font-bold text-3xl'>Email</h1>
                   <div>
-                    <p className='text-center text-black font-medium text-lg'>Homero.teatino@vartecs.com</p>
+                    <p className='text-center text-black font-medium text-lg'>vartecsingenieria@gmail.com</p>
                     <p className='text-center text-black font-medium text-lg'>Proyectos@vartecs.com</p>
                     <p className='text-center text-black font-medium text-lg'>Jorge.teatino@vartecs.com</p>
                   </div>

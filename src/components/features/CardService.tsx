@@ -24,13 +24,13 @@ export default function CardService({ url, title, description, tituloParrafo1, p
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className='flex gap-5 mx-auto bg-white text-black max-w-[70rem] w-full min-w-[300px] rounded-xl p-5 shadow-md shadow-black'
+      className='flex gap-5 mx-auto max-h-[600px] max-lg:flex-col bg-white text-black max-w-[70rem] w-full min-w-[300px] rounded-xl p-5 shadow-md shadow-black'
     >	
-      <header className='w-[27rem]'>
-        <img src={url} alt="CardService" className="w-full object-cover rounded-xl" />
+      <header className='lg:w-[27rem] h-[550px] w-full overflow-hidden rounded-xl'>
+        <img src={url} alt="CardService" className="w-full h-full object-cover" />
       </header>
-      <main className='p-5 flex flex-col gap-6 justify-center w-[43rem]'>
-        <h1 className="font-bold text-4xl">{title}</h1>
+      <main className='p-5 flex flex-col gap-6 justify-center w-full lg:w-[43rem] '>
+        <h1 className="font-bold text-xl max-lg:text-center lg:text-4xl">{title}</h1>
         <p className="">{description}</p>
         <ul>
           {
@@ -60,7 +60,7 @@ export default function CardService({ url, title, description, tituloParrafo1, p
         </ul>
         {
           link && 
-            <Link to='/servicios' className='w-fit px-6 py-2 bg-rojo text-white hover:bg-black rounded-lg font-medium'>
+            <Link to='/servicios' className='w-fit mx-auto px-6 py-2 bg-rojo text-white hover:bg-black rounded-lg font-medium'>
               Ver más
             </Link>
         }
