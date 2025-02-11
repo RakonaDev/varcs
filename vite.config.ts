@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     react()
   ],
-  base: '/informativas/vartecs',
+  base: '',
   build: {
     outDir: 'dist',
   },

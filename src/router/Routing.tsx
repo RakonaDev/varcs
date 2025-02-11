@@ -13,7 +13,7 @@ import DepositoRelaves2 from '../pages/proyects/DepositoRelaves2'
 
 export default function Routing () {
   return (
-    <BrowserRouter basename="/informativas/vartecs">
+    <BrowserRouter basename="">
       <Routes>
         <Route path='/' element={ <PublicLayout /> }>
           <Route index element={<Home />} />

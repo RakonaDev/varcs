@@ -2,13 +2,15 @@ import { motion } from "framer-motion";
 import SwiperPhotosDinamyc from "../components/utils/SwiperPhotosDinamyc"
 import { Container } from "../components/utils/Container";
 import { useFormik } from "formik";
-import { useEffect } from "react";
+import { createRef, useEffect, useState } from "react";
 import { MdOutlineMail } from "react-icons/md";
 import { FaAddressBook, FaPhoneAlt } from "react-icons/fa";
 import { SiGooglemaps } from "react-icons/si";
 import { Button, TextField } from "@mui/material";
 import { FaCalendar, FaStar, FaUser } from "react-icons/fa6";
 import { IoMdPin } from "react-icons/io";
+import Swal from "sweetalert2";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export interface ProyectLayoutProps {
   url: string[]
@@ -21,25 +23,71 @@ export interface ProyectLayoutProps {
 }
 
 export default function ProyectLayout({ url, titulo, propietario, ubicacion, fecha, cliente, logo }: ProyectLayoutProps) {
+  const [token, setToken] = useState<string | null | undefined>()
+  const [loadingCorreo, setLoadingCorreo] = useState(false)
+  const refCAPTCHA = createRef<ReCAPTCHA>()
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+  const onChange = () => {
+    setToken(refCAPTCHA.current?.getValue())
+    console.log(token)
+  }
+
   const {
     handleBlur,
     handleChange,
     handleSubmit,
+    resetForm,
     values,
     errors
   } = useFormik({
     initialValues: {
-      nombre_empresa: '',
-      ruc: '',
+      nombres: '',
       email: '',
-      telefono: '',
+      celular: '',
       mensaje: '',
     },
     onSubmit: (values) => {
-      console.log(values)
+      if (loadingCorreo) return
+      if (!token) return
+      setLoadingCorreo(true)
+      const form = new FormData()
+      form.append("nombres", values.nombres)
+      form.append("email", values.email)
+      form.append("celular", values.celular)
+      form.append("mensaje", values.mensaje)
+      try {
+        fetch("https://api.vartecs.com/public/api/enviarCorreo", {
+          method: "POST",
+          body: form,
+          mode: 'no-cors'
+        }).then((response) => {
+          if (!response.ok) {
+            throw new Error
+          }
+          else if (response.status !== 200) {
+            throw new Error
+          }
+          else {
+            return response.json()
+          }
+        }).finally(() => {
+          resetForm()
+          setLoadingCorreo(false)
+        })
+        Swal.fire({
+          title: 'Correo Enviado',
+          icon: "success"
+        })
+      }
+      catch (error) {
+        console.log(error)
+        Swal.fire({
+          title: 'No se ha enviado el correo!',
+          icon: "error"
+        })
+      }
     },
   })
   return (
@@ -162,9 +210,9 @@ export default function ProyectLayout({ url, titulo, propietario, ubicacion, fec
                 className='w-full'
                 onChange={handleChange}
                 onBlur={handleBlur}
-                name='nombre_empresa'
-                value={values.nombre_empresa}
-                helperText={errors.nombre_empresa}
+                name='nombres'
+                value={values.nombres}
+                helperText={errors.nombres}
                 required
               />
               <div className='w-full flex max-lg:flex-col gap-5'>
@@ -175,9 +223,9 @@ export default function ProyectLayout({ url, titulo, propietario, ubicacion, fec
                   className='w-full lg:w-1/2'
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  name='telefono'
-                  value={values.telefono}
-                  helperText={errors.telefono}
+                  name='celular'
+                  value={values.celular}
+                  helperText={errors.celular}
                   required
                 />
                 <TextField
@@ -206,6 +254,13 @@ export default function ProyectLayout({ url, titulo, propietario, ubicacion, fec
                 helperText={errors.mensaje}
                 required
               />
+              <div className="w-full flex justify-center">
+                <ReCAPTCHA
+                  ref={refCAPTCHA}
+                  sitekey="6LdptTUqAAAAAEN7szwumM1ksjY_WBlDGfSv6PPq"
+                  onChange={onChange}
+                />
+              </div>
               <Button type='submit' variant="contained" className='w-fit mx-auto px-8 py-2 text-white' sx={{ background: '#BF212E', fontWeight: '600', marginInline: 'auto' }}>Enviar Formulario</Button>
             </form>
             <section className='w-full flex gap-10 flex-wrap justify-evenly py-10'>

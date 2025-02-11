@@ -28,32 +28,32 @@ export function Home() {
         >
           <div className="flex flex-col gap-4">
             Soluciones en Geosintéticos y Tubería HDPE para tus proyectos industriales.
-            <Link to='' className=" w-fit mx-auto text-base rounded-xl px-8 py-2 bg-rojo hover:bg-azul duration-300 transition-colors">Contactanos</Link>
+            <Link to='/contacto' className=" w-fit mx-auto text-base rounded-xl px-8 py-2 bg-rojo hover:bg-azul duration-300 transition-colors">Contactanos</Link>
           </div>
         </motion.h1>
       </header>
       <main className="w-full">
         <Container>
           <div className="mx-auto flex flex-col items-center gap-5 text-white lg:w-1/2 w-full py-10">
-            <motion.h1
+            <motion.h2
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               className="text-center font-bold text-3xl">¿Quienes Somos?
-            </motion.h1>
+            </motion.h2>
             <motion.p
               initial={{ opacity: 0, x: -100 }}
               whileInView={{ opacity: 1, x: 0 }}
               className="text-center text-lg"><span className="font-bold">VARTECS</span>, Somos una empresa especializada en la comercialización e instalación de geosintéticos y tuberías HDPE, brindando soluciones innovadoras y sostenibles para la industria, minería, construcción y agroindustria. Contamos con un equipo de profesionales altamente capacitados y utilizamos materiales certificados para garantizar la máxima calidad en cada proyecto. Nuestro compromiso es ofrecer productos y servicios de alta eficiencia, asegurando durabilidad, seguridad y óptimo desempeño en cada aplicación.
             </motion.p>
             <TbUserStar size={70} />
-            <motion.button
+            <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.7 }}
               className=" text-white px-10 font-medium text-base py-2 rounded-lg bg-black w-fit mx-auto hover:bg-rojo transition-colors duration-500"
             >
-              Ver Mas
-            </motion.button>
+              <Link to='/nosotros'>Ver mas</Link>
+            </motion.p>
           </div>
         </Container>
         <div className="w-full flex relative justify-end overflow-hidden">
@@ -67,13 +67,13 @@ export function Home() {
             />
           </section>
           <section className="w-full lg:w-1/2 z-10 bg-rojo p-5 py-16 text-black flex flex-col gap-5">
-            <motion.h1
+            <motion.h2
               initial={{ x: 100 }}
               whileInView={{ x: 0 }}
               className="font-bold text-3xl text-center mb-10"
             >
               Nuestros Valores
-            </motion.h1>
+            </motion.h2>
             <ul className="w-full flex gap-10 justify-evenly flex-wrap">
               <li className="flex flex-col items-center justify-center text-center gap-5 min-w-[200px] max-w-[250px]">
                 <FaHandsHoldingChild size={70} className="animate-bounce h-16" />
@@ -94,7 +94,7 @@ export function Home() {
             </ul>
             <div className="w-full flex">
               <Link
-                to='#'
+                to='/nosotros'
                 className="px-6 py-2 bg-white rounded-md text-black mx-auto w-fit hover:bg-black hover:text-white duration-300 transition-colors"
               >
                 Conocenos
@@ -105,14 +105,14 @@ export function Home() {
         <article className="w-full bg-transparent py-10 text-white">
           <Container>
             <div className="flex flex-col gap-5 items-center">
-              <motion.h1
+              <motion.h2
                 initial={{ x: 100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
                 className="text-center font-bold text-2xl"
               >
                 Contactanos
-              </motion.h1>
+              </motion.h2>
               <p className="text-center">Direccion: <span className="transition-all duration-500 font-medium hover:text-rojo">Jr. Elmer Faucet Mz. Lt. 7 - Cajamarca</span></p>
               <p className="text-center">Celulares: <span className="transition-all duration-500 font-medium hover:text-rojo">923422004 - 983807040 - 934003145 - 076 264915</span></p>
               <Link to='/contacto' className='flex gap-3 px-8 py-2 items-center bg-rojo rounded-lg font-medium'>
@@ -124,13 +124,13 @@ export function Home() {
         </article>
         <div className="w-full flex relative overflow-hidden">
           <section className="w-full z-10 bg-azul_oscuro p-5 py-16 text-white flex flex-col gap-5">
-            <motion.h1
+            <motion.h2
               initial={{ x: 100 }}
               whileInView={{ x: 0 }}
               className="font-bold text-3xl text-center mb-10"
             >
               Nuestros Servicios
-            </motion.h1>
+            </motion.h2>
             <ul className="w-full flex flex-col gap-10 justify-evenly flex-wrap">
               <CardService
                 url={Instalacion_Membrana}
@@ -159,7 +159,7 @@ export function Home() {
             </ul>
             <div className="w-full flex">
               <Link
-                to='#'
+                to='/proyectos'
                 className="px-6 py-2 bg-white rounded-md text-black mx-auto w-fit hover:bg-black hover:text-white duration-300 transition-colors font-medium"
               >
                 Quiero saber mas

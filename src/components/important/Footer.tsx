@@ -7,7 +7,7 @@ export default function Footer() {
         <p className='text-base'>
           &copy; {new Date().getFullYear()} Vartecs. Todos los derechos reservados.
         </p>
-        <p className='flex items-center gap-1'>Design By: <a href='/'><img src={LogoPeru} alt="Logo" className='w-5 h-5' /></a></p>
+        <p className='flex items-center gap-1'>Design By: <a href='https://logosperu.com.pe/' target='_blank'><img src={LogoPeru} alt="Logo" className='w-5 h-5' /></a></p>
       </div>
     </footer>
   )

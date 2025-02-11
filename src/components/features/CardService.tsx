@@ -30,7 +30,7 @@ export default function CardService({ url, title, description, tituloParrafo1, p
         <img src={url} alt="CardService" className="w-full h-full object-cover" />
       </header>
       <main className='p-5 flex flex-col gap-6 justify-center w-full lg:w-[43rem] '>
-        <h1 className="font-bold text-xl max-lg:text-center lg:text-4xl">{title}</h1>
+        <h3 className="font-bold text-xl max-lg:text-center lg:text-4xl">{title}</h3>
         <p className="">{description}</p>
         <ul>
           {
@@ -60,7 +60,7 @@ export default function CardService({ url, title, description, tituloParrafo1, p
         </ul>
         {
           link && 
-            <Link to='/servicios' className='w-fit mx-auto px-6 py-2 bg-rojo text-white hover:bg-black rounded-lg font-medium'>
+            <Link to='/proyectos' className='w-fit mx-auto px-6 py-2 bg-rojo text-white hover:bg-black rounded-lg font-medium'>
               Ver más
             </Link>
         }

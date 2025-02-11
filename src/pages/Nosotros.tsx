@@ -50,11 +50,11 @@ export default function Nosotros() {
               transition={{ duration: 0.5 }}
               className='w-full lg:w-1/2 flex flex-col gap-10'
             >
-              <h1
+              <h2
                 className="font-bold text-4xl lg:text-start text-center"
               >
                 ¿Quienes Somos?
-              </h1>
+              </h2>
               <p className='font-medium text-xl'>
                 Somos una empresa especializada en la comercialización e instalación de geosintéticos y tuberías HDPE, brindando soluciones innovadoras y sostenibles para la industria, minería, construcción y agroindustria. Contamos con un equipo de profesionales altamente capacitados y utilizamos materiales certificados para garantizar la máxima calidad en cada proyecto. Nuestro compromiso es ofrecer productos y servicios de alta eficiencia, asegurando durabilidad, seguridad y óptimo desempeño en cada aplicación.
               </p>
@@ -105,14 +105,14 @@ export default function Nosotros() {
       </article>
       <section className='w-full bg-white py-10 text-black antialiased'>
         <Container>
-          <motion.h1
+          <motion.h2
             initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
             className="text-center font-bold text-4xl"
           >
-            Marcas que confiaron en nosotros
-          </motion.h1>
+            Marcas que confiaron en nosotro2
+          </motion.h2>
           <section className='w-full py-10'>
             <MostrarMarcas marcas={clientes} />
           </section>
@@ -121,14 +121,14 @@ export default function Nosotros() {
       <article className="w-full bg-transparent py-10 text-white overflow-hidden">
         <Container>
           <div className="flex flex-col gap-5 items-center">
-            <motion.h1
+            <motion.h2
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5 }}
               className="text-center font-bold text-2xl"
             >
               Contactanos
-            </motion.h1>
+            </motion.h2>
             <p className="text-center">Direccion: <span className="transition-all duration-500 font-medium hover:text-rojo">Jr. Elmer Faucet Mz. Lt. 7 - Cajamarca</span></p>
             <p className="text-center">Celulares: <span className="transition-all duration-500 font-medium hover:text-rojo">923422004 - 983807040 - 934003145 - 076 264915</span></p>
             <Link to='/contacto' className='flex gap-3 px-8 py-2 items-center bg-rojo rounded-lg font-medium'>

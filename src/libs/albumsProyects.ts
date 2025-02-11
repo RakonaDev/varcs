@@ -11,7 +11,7 @@ import Proyecto5_3 from '../assets/images/proyectos/5_3.webp'
 import Proyecto5_4 from '../assets/images/proyectos/5_4.webp'
 import Proyecto3 from '../assets/images/proyectos/banner.webp'
 import Proyecto3_1 from '../assets/images/proyectos/3_1.webp'
-import Proyecto6 from '../assets/images/proyectos/6.webp'
+import Proyecto2_2 from '../assets/images/proyectos/2_2.webp'
 import Proyecto6_1 from '../assets/images/proyectos/6_1.webp'
 import Proyecto6_2 from '../assets/images/proyectos/6_2.webp'
 import Proyecto6_3 from '../assets/images/proyectos/6_3.webp'
@@ -24,6 +24,7 @@ export const albumProyect1 = [
 export const albumProyect2 = [
   Proyecto2,
   Proyecto2_1,
+  Proyecto2_2,
 ]
 
 export const albumProyect3 = [
@@ -45,7 +46,6 @@ export const albumProyect5 = [
 ]
 
 export const albumProyect6 = [
-  Proyecto6,
   Proyecto6_1,
   Proyecto6_2,
   Proyecto6_3,
